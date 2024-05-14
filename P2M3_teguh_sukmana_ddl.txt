@@ -1,0 +1,40 @@
+======================================================================================
+
+URL Dataset:
+https://www.kaggle.com/datasets/lava18/google-play-store-apps
+
+======================================================================================
+
+Syntax SQL:
+BEGIN;
+
+-- Create table
+CREATE TABLE table_m3 (
+    "App" VARCHAR(255),
+    "Category" VARCHAR(255),
+    "Rating" FLOAT,
+    "Reviews" VARCHAR(50),
+    "Size" VARCHAR(50),
+    "Installs" VARCHAR(50),
+    "Type" VARCHAR(50),
+    "Price" VARCHAR(50),
+    "Content Rating" VARCHAR(255),
+    "Genres" VARCHAR(255),
+    "Last Updated" VARCHAR(255),
+    "Current Ver" VARCHAR(50),
+    "Android Ver" VARCHAR(50)
+);
+
+COMMIT;
+
+BEGIN;
+
+-- Import the csv file into the table
+COPY table_m3 
+FROM '/files/P2M3_teguh_sukmana_data_raw.csv' -- Sesuaikan path ini sesuai dengan lokasi file CSV dalam container PostgreSQL di docker
+DELIMITER ','
+CSV HEADER;
+
+COMMIT;
+
+======================================================================================
